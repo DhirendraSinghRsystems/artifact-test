@@ -11,6 +11,7 @@ on:
   workflow_dispatch:
 env:
   database_name: dhirendraxuz
+  server_name: ${{ secrets.server_name }}
 jobs:
   job1:
     env:
@@ -30,7 +31,7 @@ jobs:
           path: pushtest.txt
       - name: out put content
         run: |
-          echo "${{ env.user_name }} and ${{ env.database_name }}" 
+          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ env.server_name }}" 
   job2:
     env:
       user_name: Job2@dhirendra
@@ -44,7 +45,7 @@ jobs:
       - name: out put content
         run: |
           ls
-          echo "${{ env.user_name }} and ${{ env.database_name }}" 
+          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }}" 
         
       
     
