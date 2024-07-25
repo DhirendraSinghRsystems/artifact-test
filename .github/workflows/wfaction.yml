@@ -1,6 +1,5 @@
 name: action typs
 on:
-  #pull_request:
   push:
     types:
       - opened
@@ -8,7 +7,9 @@ on:
       - main
     paths-ignore:
       - '.github/workflow/*'
+  
   workflow_dispatch:
+  
 env:
   database_name: dhirendraxuz
   server_name: ${{ secrets.server_name }}
