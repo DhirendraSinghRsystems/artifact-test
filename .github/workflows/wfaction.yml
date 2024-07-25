@@ -30,7 +30,7 @@ jobs:
     needs: job1
     steps:
       - name: download artifacts
-        uses: actions/download-artifacts@v3
+        uses: actions/download-artifact@v3
         with:
           name: message
       - name: out put content
