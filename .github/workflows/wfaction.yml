@@ -1,8 +1,9 @@
 name: action typs
 on:
   push:
-    types:
-      - opened
+  #pull_request:
+   # types:
+    #  - opened
     branches:
       - main
     paths-ignore:
