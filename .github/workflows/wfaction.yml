@@ -1,0 +1,25 @@
+name: action typs
+on:
+  #pull_request:
+  push:
+    types:
+      - opened
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflow/*'
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: greeting
+        run: echo "hello world"
+      - name: get code from git hub to agent machine
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: message.txt
+    
