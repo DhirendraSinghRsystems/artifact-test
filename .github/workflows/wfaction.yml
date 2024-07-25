@@ -9,9 +9,12 @@ on:
     paths-ignore:
       - '.github/workflow/*'
   workflow_dispatch:
-  
+env:
+  database_name: dhirendraxuz
 jobs:
   job1:
+    env:
+      user_name:  job1Dps@xyz123
     runs-on: ubuntu-latest
     steps:
       - name: greeting
@@ -25,7 +28,12 @@ jobs:
         with:
           name: message
           path: pushtest.txt
+      - name: out put content
+        run: |
+          echo "${{ env.user_name }} and ${{ env.database_name }}" 
   job2:
+    env:
+      user_name: Job2@dhirendra
     runs-on: ubuntu-latest
     needs: job1
     steps:
@@ -34,6 +42,9 @@ jobs:
         with:
           name: message
       - name: out put content
-        run: ls
+        run: |
+          ls
+          echo "${{ env.user_name }} and ${{ env.database_name }}" 
+        
       
     
