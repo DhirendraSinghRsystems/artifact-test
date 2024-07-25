@@ -1,6 +1,8 @@
 name: wfpathfilter
 on:
-  push:
+#push:
+  pull_request:
+    types: opened
     branches:
       - main
       - dev-*
