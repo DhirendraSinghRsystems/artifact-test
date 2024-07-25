@@ -47,7 +47,7 @@ jobs:
       - name: out put content
         run: |
           ls
-          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }} 
+          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }}" 
   job3:
     needs: [job1,job2]
     if: failure()
