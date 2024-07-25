@@ -23,6 +23,6 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: message.txt
-          path: pushtest.txt
+          name: message
+          path: ./artifact-test/pushtest.txt
     
