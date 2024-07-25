@@ -31,6 +31,8 @@ jobs:
           path: pushtest.txt
       - name: out put content
         run: |
+          echo "${{ secrets.server_name }}" >> plain.txt
+          cat plain.txt
           echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ env.server_name }}" 
   job2:
     env:
