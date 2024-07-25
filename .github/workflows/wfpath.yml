@@ -1,0 +1,17 @@
+name: wfpathfilter
+on:
+  push:
+    branches:
+      - main
+      - dev-*
+      - features/**
+    paths-ignore:
+      - '.github/workflows/**'
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step one show greetings
+        run: echo "hello world"
+      
+      
