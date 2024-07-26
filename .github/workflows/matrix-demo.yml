@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 jobs:
   job1:
+    continue-on-error: true
     strategy:
       matrix:
         option1:  [3,4]
