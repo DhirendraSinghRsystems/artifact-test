@@ -1,13 +1,13 @@
 name: continue on error
 on:
-  push:
+  #push:
   #pull_request:
    # types:
     #  - opened
-    branches:
-      - main
-    paths-ignore:
-      - '.github/workflow/*'
+    #branches:
+     # - main
+    #paths-ignore:
+     # - '.github/workflow/*'
   
   workflow_dispatch:
   
