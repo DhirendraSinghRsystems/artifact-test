@@ -14,6 +14,6 @@ jobs:
     steps:
       - name: show greeting 
         run: echo "show greeting message"
-  deploy:
+  callwork-flow:
     needs: useworkflow
     uses: ./.github/workflows/reusable.yml
