@@ -1,0 +1,10 @@
+name: Reusable-workflow
+on: workflow_call
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy step is now ready
+        run: echo "deploy steps are now ready"
+      - name: deploy complete steps
+        run: echo "deploy steps are completed"
