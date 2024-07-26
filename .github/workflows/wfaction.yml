@@ -47,9 +47,14 @@ jobs:
         with:
           name: message
       - name: out put content
+        id: content
         run: |
           ls
           echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }}" 
+      - name: depended jobs
+        if: failure() && steps.content.outcome == 'false'
+        run: |
+          echo "this steps has excuted because of above job was failed"
   job3:
     needs: [job1,job2]
     if: failure()
