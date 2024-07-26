@@ -15,10 +15,10 @@ jobs:
         operating-systems: [ubuntu-latest,windows-latest]
         include:
           - option1: 13
-          - operating-systems: windows-latest
+            operating-systems: windows-latest
         exclude:
           - option1: 3
-          - operating-systems: windows-latest
+            operating-systems: windows-latest
     runs-on: ${{ matrix.operating-systems }}
     steps:
       - name: greeting message
