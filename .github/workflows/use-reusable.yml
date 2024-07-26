@@ -1,0 +1,18 @@
+name: use reuable work flow
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/workflows/*'
+      
+  workflow_dispatch:
+  
+jobs:
+  useworkflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show greeting 
+        run: echo "show greeting message"
+      - name: use workflows
+        uses: ./.github/workflows/reusable.yaml
