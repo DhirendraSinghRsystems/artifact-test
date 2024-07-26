@@ -16,5 +16,4 @@ jobs:
         run: echo "show greeting message"
   deploy:
     needs: useworkflow
-    name: use workflows
     uses: ./.github/workflows/reusable.yaml
