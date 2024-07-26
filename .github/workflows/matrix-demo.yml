@@ -1,0 +1,26 @@
+name: matrix demo
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflow/*'
+  workflow_dispatch:
+jobs:
+  job1:
+    strategy:
+      matrix:
+        option1:  [3,4]
+        operating-systems: [ubuntu-latest,windows-latest]
+    runs-on: ${{ matrix.operating-systems }}
+    steps:
+      - name: greeting message
+        run: echo "hello world"
+      - name: do some work
+        run: |
+          echo "build process is geeting ready ${{ $matrix.operating-systems }}"
+      - name: deployment is ready
+        run: |
+         echo "deployment is getting ready ${{ matrix.option1 }}" 
+  
+    
