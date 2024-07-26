@@ -52,7 +52,7 @@ jobs:
           ls
           echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }} 
       - name: depended jobs
-        if: failure() && steps.content.outcome == 'false'
+        if: failure() && steps.content.outcome == 'failure'
         run: |
           echo "this steps has excuted because of above job was failed"
   job3:
