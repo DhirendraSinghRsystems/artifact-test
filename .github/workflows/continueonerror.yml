@@ -1,0 +1,69 @@
+name: action typs
+on:
+  push:
+  #pull_request:
+   # types:
+    #  - opened
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflow/*'
+  
+  workflow_dispatch:
+  
+env:
+  database_name: dhirendraxuz
+  server_name: ${{ secrets.server_name }}
+jobs:
+  job1:
+    env:
+      user_name:  job1Dps@xyz123
+    runs-on: ubuntu-latest
+    steps:
+      - name: greeting
+        run: ls
+      - name: get code from git hub to agent machine
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: message
+          path: pushtest.txt
+      - name: out put content
+        run: |
+          echo "${{ secrets.server_name }}" >> plain.txt
+          cat plain.txt
+          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ env.server_name }}" 
+  job2:
+    env:
+      user_name: Job2@dhirendra
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: message
+      - name: out put content
+        continue-on-error: true
+        id: content
+        run: |
+          ls
+          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }}
+      - name: depended jobs
+        #if: failure() && steps.content.outcome == 'failure'
+        run: |
+          echo "this steps will be exicuted always, because of continue on error statement"
+  job3:
+    needs: [job1,job2]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: if any job fails execute this job
+        run: |
+          echo "some thing went wrong"
+        
+      
+    
