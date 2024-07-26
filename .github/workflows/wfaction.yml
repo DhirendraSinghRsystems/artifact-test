@@ -50,7 +50,7 @@ jobs:
         id: content
         run: |
           ls
-          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }} 
+          echo "${{ env.user_name }} and ${{ env.database_name }} and ${{ secrets.server_name }}"
       - name: depended jobs
         if: failure() && steps.content.outcome == 'failure'
         run: |
