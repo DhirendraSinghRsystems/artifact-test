@@ -17,3 +17,5 @@ jobs:
   callwork-flow:
     needs: useworkflow
     uses: ./.github/workflows/reusable.yml
+    with:
+      passvalue: excellent-job
